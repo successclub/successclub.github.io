@@ -1,0 +1,745 @@
+!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PIROCKET Coin - 차세대 커뮤니티 드리븐 Web3 메타버스 &amp; MemeFi 생태계"
+    />
+    <title>PIROCKET Coin | Ignite the Community</title>
+    <style>
+      :root {
+        --gradient: linear-gradient(135deg, #ff6b6b, #f06595, #845ef7);
+        --primary: #ff6b6b;
+        --secondary: #845ef7;
+        --accent: #ffcb6b;
+        --bg-dark: #0f1020;
+        --bg-card: rgba(22, 24, 45, 0.8);
+        --text-primary: #ffffff;
+        --text-secondary: #cdd6f4;
+        --text-muted: #94a3b8;
+        --max-width: 1100px;
+        --radius: 18px;
+        --shadow: 0 20px 40px rgba(12, 15, 35, 0.45);
+        --transition: all 220ms ease;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Pretendard", "Spoqa Han Sans Neo", "Noto Sans KR", sans-serif;
+        background: radial-gradient(circle at top, rgba(132, 94, 247, 0.2), transparent 55%),
+          radial-gradient(circle at bottom, rgba(240, 101, 149, 0.18), transparent 60%),
+          var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background: rgba(15, 16, 32, 0.85);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 18px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.05em;
+      }
+
+      .brand span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--gradient);
+        color: var(--bg-dark);
+        font-size: 1.2rem;
+        font-weight: 800;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+      }
+
+      .nav-menu a {
+        position: relative;
+        padding-bottom: 6px;
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--gradient);
+        transition: width 200ms ease;
+      }
+
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      .cta-button {
+        padding: 12px 22px;
+        border-radius: 999px;
+        background: var(--gradient);
+        color: var(--bg-dark);
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: var(--shadow);
+        transition: transform 200ms ease, box-shadow 200ms ease;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 25px 50px rgba(132, 94, 247, 0.4);
+      }
+
+      main {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 120px 28px 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 120px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+        gap: 48px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.8rem, 5vw, 3.8rem);
+        line-height: 1.1;
+        margin: 0 0 18px;
+      }
+
+      .hero-content h1 span {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+
+      .hero-content p {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+        margin-bottom: 28px;
+      }
+
+      .hero-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 18px;
+      }
+
+      .metric-card {
+        padding: 20px 22px;
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .metric-card h3 {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+
+      .metric-card span {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .section-title span {
+        width: 44px;
+        height: 2px;
+        background: var(--gradient);
+        border-radius: 999px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 2.1rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 26px;
+      }
+
+      .feature-card {
+        padding: 26px;
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top right, rgba(132, 94, 247, 0.16), transparent);
+        opacity: 0;
+        transition: opacity 220ms ease;
+      }
+
+      .feature-card:hover::before {
+        opacity: 1;
+      }
+
+      .feature-card h3 {
+        margin: 0 0 10px;
+        font-size: 1.25rem;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+      }
+
+      .tokenomics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 32px;
+      }
+
+      .token-card {
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .token-card h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        color: var(--accent);
+      }
+
+      .token-card ul {
+        padding-left: 18px;
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .token-card li {
+        margin-bottom: 6px;
+      }
+
+      .token-progress {
+        height: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .token-progress span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: var(--gradient);
+      }
+
+      .roadmap {
+        display: grid;
+        gap: 16px;
+        position: relative;
+      }
+
+      .roadmap::before {
+        content: "";
+        position: absolute;
+        left: 14px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .roadmap-item {
+        margin-left: 46px;
+        background: rgba(20, 22, 42, 0.75);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 20px 24px;
+        position: relative;
+      }
+
+      .roadmap-item::before {
+        content: attr(data-phase);
+        position: absolute;
+        left: -46px;
+        top: 18px;
+        width: 32px;
+        height: 32px;
+        border-radius: 12px;
+        background: var(--gradient);
+        color: var(--bg-dark);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .roadmap-item h3 {
+        margin: 0 0 8px;
+        font-size: 1.1rem;
+      }
+
+      .roadmap-item p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .cta-banner {
+        padding: 42px;
+        border-radius: calc(var(--radius) * 1.1);
+        background: linear-gradient(120deg, rgba(240, 101, 149, 0.9), rgba(132, 94, 247, 0.85));
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .cta-banner h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 2.6rem);
+      }
+
+      .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .cta-outline {
+        padding: 12px 22px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        color: var(--text-primary);
+        font-weight: 600;
+        transition: var(--transition);
+      }
+
+      .cta-outline:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      footer {
+        padding: 48px 28px 80px;
+        background: rgba(10, 12, 24, 0.9);
+      }
+
+      .footer-inner {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+        color: var(--text-secondary);
+      }
+
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .footer-brand strong {
+        font-size: 1.1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-links a {
+        color: var(--text-secondary);
+        font-size: 0.92rem;
+      }
+
+      .disclaimer {
+        margin-top: 28px;
+        padding: 14px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.6rem;
+        cursor: pointer;
+      }
+
+      @media (max-width: 860px) {
+        .nav {
+          padding: 16px 20px;
+        }
+
+        .nav-menu {
+          position: absolute;
+          top: 66px;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          gap: 18px;
+          padding: 22px;
+          background: rgba(15, 16, 32, 0.95);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          transform: translateY(-12px);
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 160ms ease;
+        }
+
+        .nav-menu.active {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .mobile-toggle {
+          display: inline-flex;
+        }
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding: 100px 20px 80px;
+          gap: 90px;
+        }
+
+        .hero-content h1 {
+          font-size: clamp(2.4rem, 10vw, 3.1rem);
+        }
+
+        .hero-metrics {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+
+        .cta-banner {
+          padding: 32px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="brand">
+          <span>🚀</span>
+          PIROCKET COIN
+        </div>
+        <button class="mobile-toggle" aria-label="메뉴 열기">☰</button>
+        <div class="nav-menu" id="nav-menu">
+          <a href="#about">소개</a>
+          <a href="#utility">유틸리티</a>
+          <a href="#tokenomics">토크노믹스</a>
+          <a href="#roadmap">로드맵</a>
+          <a href="#community">커뮤니티</a>
+          <a class="cta-button" href="#launch">화이트리스트 신청</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="about">
+        <div class="hero-content">
+          <h1>
+            커뮤니티가 쏘아 올리는<br />
+            <span>PIROCKET Coin</span>
+          </h1>
+          <p>
+            Web3를 넘어 WebNext로. Pirocket Coin은 커뮤니티 참여자에게 실질적인 보상을 제공하고,
+            탈중앙화된 밈 생태계를 우주로 확장하는 차세대 MemeFi 프로젝트입니다.
+          </p>
+          <div class="cta-actions">
+            <a class="cta-button" href="#launch">화이트리스트 등록</a>
+            <a class="cta-outline" href="#whitepaper">📄 라이트페이퍼</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-metrics">
+            <article class="metric-card">
+              <h3>25K+</h3>
+              <span>글로벌 커뮤니티</span>
+            </article>
+            <article class="metric-card">
+              <h3>3.2M</h3>
+              <span>이미 발사된 총 PIRC</span>
+            </article>
+            <article class="metric-card">
+              <h3>0% 세금</h3>
+              <span>투명한 온체인 거래</span>
+            </article>
+            <article class="metric-card">
+              <h3>2025 Q1</h3>
+              <span>메인넷 런치 예정</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="utility">
+        <div class="section-title">
+          <span></span>
+          <h2>왜 PIROCKET Coin인가?</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>GameFi Launchpad</h3>
+            <p>
+              커뮤니티가 큐레이션한 인디 게임을 온체인으로 배포하고, 초기 유동성을 PIRC으로 지원합니다.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Creator Boost</h3>
+            <p>
+              NFT 및 디지털 굿즈 판매 수익 일부가 소각 풀로 전환되어 토큰 희소성을 강화합니다.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>DeFi Utility</h3>
+            <p>
+              스테이킹과 유동성 마이닝으로 APY를 제공하며, 거버넌스 제안 투표에 직접 참여할 수 있습니다.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Community Missions</h3>
+            <p>
+              미션 수행을 통해 PIRC를 보상으로 지급하며, 레벨업 시스템으로 커뮤니티 리더가 탄생합니다.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="tokenomics">
+        <div class="section-title">
+          <span></span>
+          <h2>토크노믹스</h2>
+        </div>
+        <div class="tokenomics">
+          <article class="token-card">
+            <h3>총 공급량</h3>
+            <p style="margin: 0">10억 PIRC</p>
+            <div class="token-progress">
+              <span style="width: 100%"></span>
+            </div>
+            <ul>
+              <li>20%: 커뮤니티 &amp; 에어드랍</li>
+              <li>18%: 생태계 보조금</li>
+              <li>15%: 팀 &amp; 어드바이저 (24개월 베스팅)</li>
+              <li>12%: 유동성 풀</li>
+              <li>10%: 재단 및 운영</li>
+              <li>25%: 퍼블릭 &amp; 프라이빗 세일</li>
+            </ul>
+          </article>
+          <article class="token-card">
+            <h3>토큰 유틸리티</h3>
+            <ul>
+              <li>스테이킹 → 거버넌스 투표권 획득</li>
+              <li>GameFi 플레이 &amp; 인앱 결제 수단</li>
+              <li>크리에이터 로열티 정산 및 소각 트리거</li>
+              <li>커뮤니티 미션 참여 보상</li>
+            </ul>
+          </article>
+          <article class="token-card">
+            <h3>보안 &amp; 감사</h3>
+            <ul>
+              <li>3중 스마트컨트랙트 감사 (CertiK, Quantstamp, SlowMist)</li>
+              <li>DAO 기반 트레저리 멀티시그</li>
+              <li>KYT/AML 파트너 연동</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="roadmap">
+        <div class="section-title">
+          <span></span>
+          <h2>로드맵</h2>
+        </div>
+        <div class="roadmap">
+          <article class="roadmap-item" data-phase="Q1">
+            <h3>커뮤니티 점화</h3>
+            <p>
+              화이트리스트 캠페인, 미션 베타 출시, 파트너 스트리머 합류. 초기 DAO 설립과 거버넌스 프레임 구축.
+            </p>
+          </article>
+          <article class="roadmap-item" data-phase="Q2">
+            <h3>메인넷 런치</h3>
+            <p>
+              PIRC 토큰 TGE, CEX &amp; DEX 상장, GameFi 런치패드 1호 프로젝트 공개, 멀티체인 브리지 지원.
+            </p>
+          </article>
+          <article class="roadmap-item" data-phase="Q3">
+            <h3>생태계 확장</h3>
+            <p>
+              크리에이터 로열티 파이프라인 완성, 온체인 미션 시스템 정식 론칭, 커뮤니티 펀딩 DAO 활성화.
+            </p>
+          </article>
+          <article class="roadmap-item" data-phase="Q4">
+            <h3>인터스텔라 파트너십</h3>
+            <p>
+              글로벌 브랜드 협업, 메타버스 이벤트, PIRC 멤버십 NFT &amp; 소각 캠페인으로 토큰 경제 안정화.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="community">
+        <div class="section-title">
+          <span></span>
+          <h2>커뮤니티 허브</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Discord</h3>
+            <p>DAO 제안, 데일리 미션, AMA 세션을 진행하는 메인 베이스캠프.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Twitter</h3>
+            <p>글로벌 뉴스, 밈 챌린지, 파트너 발표를 가장 빠르게 제공합니다.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Mirror</h3>
+            <p>프로젝트 개발 로그, 토큰 소각 리포트, 월간 생태계 업데이트를 게시합니다.</p>
+          </article>
+          <article class="feature-card">
+            <h3>IRL Meetups</h3>
+            <p>서울, 도쿄, 싱가포르 등 아시아 허브에서 오프라인 밋업을 정기 개최합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="launch">
+        <div class="cta-banner">
+          <h2>PIROCKET 화이트리스트에 지금 합류하세요!</h2>
+          <div class="cta-actions">
+            <a class="cta-button" href="https://tally.so/r/whitelist" target="_blank" rel="noopener">
+              🚀 신청하기
+            </a>
+            <a class="cta-outline" href="#faq">FAQ 살펴보기</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <strong>PIROCKET Coin</strong>
+          <span>Ignite the MemeFi Thrusters.</span>
+          <span>© 2025 Pirocket Labs. All rights reserved.</span>
+        </div>
+        <div class="footer-links">
+          <strong>리소스</strong>
+          <a href="#whitepaper">라이트페이퍼</a>
+          <a href="#tokenomics">토크노믹스</a>
+          <a href="#roadmap">로드맵</a>
+        </div>
+        <div class="footer-links">
+          <strong>커뮤니티</strong>
+          <a href="https://discord.gg/pirocket" target="_blank" rel="noopener">Discord</a>
+          <a href="https://x.com/pirocket" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://mirror.xyz/pirocket" target="_blank" rel="noopener">Mirror</a>
+        </div>
+        <div class="footer-links">
+          <strong>지원</strong>
+          <a href="mailto:support@pirocket.io">support@pirocket.io</a>
+          <a href="#faq">자주 묻는 질문</a>
+          <a href="#">보안 취약점 제보</a>
+        </div>
+      </div>
+      <p class="disclaimer">
+        면책 조항: PIROCKET Coin은 투자 조언을 제공하지 않습니다. 토큰 구매 전 본인의 리서치를 수행하세요.
+      </p>
+    </footer>
+
+    <script>
+      const toggleButton = document.querySelector(".mobile-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      toggleButton.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        toggleButton.setAttribute(
+          "aria-label",
+          navMenu.classList.contains("active") ? "메뉴 닫기" : "메뉴 열기"
+        );
+      });
+
+      document.querySelectorAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (navMenu.classList.contains("active")) {
+            navMenu.classList.remove("active");
+            toggleButton.setAttribute("aria-label", "메뉴 열기");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
