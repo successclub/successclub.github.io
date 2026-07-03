@@ -1,0 +1,53 @@
+VERSION="2.0.0"
+
+# 발행자 계정 정보
+ACCOUNTS=[
+  "GCPKRYYXAOMTIQUA2B7AGCJWFFPAW3IJ34E3XPK4HQCDMJFA5FLKM7ZL"
+]
+
+# 홈 도메인
+HORIZON_URL="https://horizon.stellar.org"
+
+# 문서 및 리소스
+DOCUMENTATION.ORG_NAME="Light of Night"
+DOCUMENTATION.ORG_DBA="PIROCKET"
+DOCUMENTATION.ORG_URL="https://successclub.github.io/pirocket/"
+DOCUMENTATION.ORG_LOGO="https://successclub.github.io/pirocket/pirocket-logo.png"
+DOCUMENTATION.ORG_DESCRIPTION="PIROCKET - Web3 Meme Coin on Stellar Mainnet. Blockchain-based next-generation internet cryptocurrency. Prepared for the quantum computing era, ensuring long-term protection against potential quantum computer hacking attempts."
+DOCUMENTATION.ORG_PHYSICAL_ADDRESS=""
+DOCUMENTATION.ORG_PHYSICAL_ADDRESS_ATTESTATION=""
+DOCUMENTATION.ORG_PHONE_NUMBER=""
+DOCUMENTATION.ORG_PHONE_NUMBER_ATTESTATION=""
+DOCUMENTATION.ORG_KEYBASE=""
+DOCUMENTATION.ORG_TWITTER="KimChulmin9"
+DOCUMENTATION.ORG_GITHUB="successclub"
+
+# 개발자 정보
+[[PRINCIPALS]]
+name="James Kim"
+email="moneyclubx@naver.com"
+keybase=""
+twitter="KimChulmin9"
+github="successclub"
+
+# PIROCKET 토큰 정보
+[[CURRENCIES]]
+code = "PIROCKET"
+issuer = "GCPKRYYXAOMTIQUA2B7AGCJWFFPAW3IJ34E3XPK4HQCDMJFA5FLKM7ZL"
+display_decimals = 7
+name = "PiRocket"
+desc = "PIROCKET - Web3 Meme Coin on Stellar Mainnet. Blockchain-based next-generation internet cryptocurrency. Prepared for the quantum computing era, ensuring long-term protection against potential quantum computer hacking attempts."
+image = "https://successclub.github.io/pirocket/pirocket-logo.png"
+anchor_asset_type="crypto"
+anchor_asset="XLM"
+is_unlimited = true
+is_asset_anchored = false
+show_exchange_ticker = true
+
+# 텍스트 레코드 (추가 정보)
+[TRANSFER_SERVER]
+[TRANSFER_SERVER_SIGNING_KEY]
+[KYC_SERVER]
+[WEB_AUTH_ENDPOINT]
+[FEDERATION_SERVER]
+[URI_REQUEST_SIGNING_KEY]
